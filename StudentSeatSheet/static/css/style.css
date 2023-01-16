@@ -1,0 +1,25 @@
+#table-div{
+    background-color:skyblue;
+}
+table{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%,0);
+    width: fit-content;
+    text-align: center;
+}
+.seat{
+    height: 10vh;
+    width: 15vw;
+}
+.aisle{
+    height: 10vh;
+    width: 10vw;
+}
+.stu{
+    background-color: green;
+    text-align: center;
+    vertical-align: middle;
+    width: 5vw;
+    height: 5vw;
+}

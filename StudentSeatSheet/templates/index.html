@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>學生座位紀錄</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+        <script>
+            var nowHolding
+            function allowDrop(ev) {
+                ev.preventDefault();
+                nowHolding=ev.target.id;
+            }
+            function drag(ev) {
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                // alert($("#stu").attr("value"))
+                // alert(ev.target.id);
+                // $("#"+ev.target.id).text($("#stu").attr("value"));
+                // alert($("#"+data).attr("value"));
+                // ev.target.appendChild(document.getElementById(data));
+                $("#"+ev.target.id).append($("#"+data).attr("value"));
+            }
+        </script>
+    </head>
+    <body>
+        <div id="table-div">
+            <table border="solid">
+                <tr>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat00">00</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat01">01</td>
+                    <td class="aisle"></td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat02">02</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat03">03</td>
+                </tr>
+                <tr>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat10">10</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat11">11</td>
+                    <td class="aisle"></td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat12">12</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat13">13</td>
+                </tr>
+                <tr>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat20">20</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat21">21</td>
+                    <td class="aisle"></td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat22">22</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat23">23</td>
+                </tr>
+                <tr>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat30">30</td>
+                    <td class="seat" ondrop="drop(event)" ondragover="allowDrop(event)" id="seat31">31</td>
+                    <td class="aisle"></td>
+                    <td class="seat" colspan="2">ME</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <table border="solod">
+                <tr>
+                    <td class="stu"><div id="stu_1" draggable="true" value="Bryan" ondragstart="drag(event)">Bryan</div></td>
+                    <td class="stu"><div id="stu_2" draggable="true" value="Flora" ondragstart="drag(event)">Flora</div></td>                    
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
